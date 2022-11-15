@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'fridge.css' %}">
+    <script>
+        setTimeout(function(){
+            window.location.reload(1);
+        }, 5000);
+    </script>
+</head>
+<body>
+    <section class="topbar">
+        <h3 class="topbar__container">My Refrigerator</h3>
+    </section>
+    
+    <section id='content'>
+        <div class='content__container'>
+            <div class='items__container'>
+                <h3 style="margin-bottom:1rem; margin-top:1rem;">Current Items</h3>
+                <div class="current_items">  
+                    <div class="items__card" id="items__card0">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>              
+                    <div class="items__card" id="items__card1">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>
+                    <div class="items__card" id="items__card2">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>
+                    <div class="items__card" id="items__card3">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>
+                    <div class="items__card" id="items__card4">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>
+                    <div class="items__card" id="items__card5">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>
+                    <div class="items__card" id="items__card6">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>
+                    <div class="items__card" id="items__card7">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>
+                    <div class="items__card" id="items__card8">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>
+                    <div class="items__card" id="items__card9">
+                        <div class="items__card__name"></div>
+                        <div class="items__card__bars"></div>
+                        <div class="items__card__count"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class='right__container'>
+                <div class='alarm__container'>
+                    <h3 style="font-size:14px">Alarm</h3>
+                    <div class="alarm" style="overflow: auto;">
+                        {% for ef in epff %}
+                        <img src="static/red.PNG" width="22" height="22">
+                         {{ef}}<br>
+                        {% endfor %}  
+                    </div>
+                </div>
+
+                <div class='log__container'>
+                    <h3 style="font-size:14px">Log</h3>
+                    <div class="log__graph__container">
+                        <div class="log" style="overflow: auto;">
+                            {% for i in iot %}
+                            {{i}}<br>
+                            {% endfor %}  
+                        </div>
+                        <div class="log__graph">
+                            <div class="log__card" id="log__card0">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                            <div class="log__card" id="log__card1">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                            <div class="log__card" id="log__card2">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                            <div class="log__card" id="log__card3">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                            <div class="log__card" id="log__card4">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                            <div class="log__card" id="log__card5">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                            <div class="log__card" id="log__card6">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                            <div class="log__card" id="log__card7">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                            <div class="log__card" id="log__card8">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                            <div class="log__card" id="log__card9">
+                                <div class="log__card__bars"></div>
+                                <div class="log__card__name"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            <script>
+                var nm = document.querySelectorAll('.items__card__name');
+                var nm0 = document.querySelectorAll('.log__card__name');
+                var bar = document.querySelectorAll('.items__card__bars');
+                var bar0 = document.querySelectorAll('.log__card__bars');
+                var cnt = document.querySelectorAll('.items__card__count');
+                var ci = {{ci}};
+                var ic = {{ic}};
+                const classes = ['사과', '양상추', '귤', '양파', '파프리카', '배', '호박', '포도', '아보카도', '감자'];
+                var i = 0;
+                
+                for (c of {{ci}}) {
+                    cnt[i].innerHTML = c;
+                    nm[i].innerHTML = classes[i];
+                    nm0[i].innerHTML = classes[i];
+                    i++;
+                }
+                
+                for (var l=0; l<10; l++){
+                    for (var k=0; k<10; k++){
+                        var bar1 = document.createElement('div');
+                        var bar2 = document.createElement('div');
+                        bar1.setAttribute('class', 'items__card__bar');
+                        bar1.setAttribute('id', 'items__card__bar' + l + k);
+                        bar1.setAttribute('style', 'display:inline')
+
+                        bar2.setAttribute('class', 'log__card__bar');
+                        bar2.setAttribute('id', 'log__card__bar' + l + k);
+                        bar2.setAttribute('style', 'display:inline');
+
+                        bar[l].appendChild(bar1);
+                        bar0[l].appendChild(bar2);  
+
+                    }
+                }
+
+
+                for (var i=0; i<10; i++) {
+                    for (var j=0; j<10; j++) {
+                        var card = document.getElementById('items__card__bar' + i + j);
+                        if (ci[i] == 0){
+                            card.setAttribute('style', 'background-color: #ebecf0');
+                            
+                        }
+                        if (j < ci[i]) {
+                            card.setAttribute('style', 'background-color:#a5d86f;');
+                        }
+                    }
+                }
+
+                for (var i=0; i<10; i++){
+                    for (var j=0; j<10; j++){
+                        var card = document.getElementById('log__card__bar' + i + (9-j));
+                        if (j < ic[i]) {
+                            card.setAttribute('style', 'background-color: #abddfc;');
+                        }
+                    }
+                }
+            </script>
+        </div>
+
+    </section>    
+
+</body>
+</html>
